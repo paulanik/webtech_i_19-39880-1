@@ -53,6 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } 
   else {
     $degree = test_input($_POST["degree"]);
+    if (count($_POST["degree"]) < 2) {
+      $degreeErr = "Select at least two Degree";
+    }
 }
 
 
@@ -64,6 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function test_input($data) {
+  if(is_array($data)) {
+        return array_map('test_input', $data);
+    }
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
@@ -97,10 +103,10 @@ function test_input($data) {
   <br><br>
 
   DEGREE:
-   <input type="checkbox" name="degree" value="SSC">SSC
-   <input type="checkbox" name="degree" value="HSC">HSC
-   <input type="checkbox" name="degree" value="BSc">BSc
-   <input type="checkbox" name="degree" value="MSc">MSc
+   <input type="checkbox" name="degree[]" value="SSC">SSC
+   <input type="checkbox" name="degree[]" value="HSC">HSC
+   <input type="checkbox" name="degree[]" value="BSc">BSc
+   <input type="checkbox" name="degree[]" value="MSc">MSc
    <span class="error">* <?php echo $degreeErr;?></span>
   <br><br>
 
@@ -128,7 +134,15 @@ echo $dateofbirth;
 echo "<br>";
 echo $gender;
 echo "<br>";
-echo $degree;
+if (isset($_POST['degree'])) {
+  $name = $_POST['degree'];
+  if (count($name)<2){
+    echo "";
+  }
+   else {foreach ($name as $degree){ 
+        echo $degree, " ";
+    }}
+  }
 echo "<br>";
 echo $bloodgroup;
 ?>
