@@ -1,5 +1,7 @@
 <?php  
 
+session_start();
+
  $message = '';  
  $error = '';  
  if(isset($_POST["submit"]))  
@@ -93,8 +95,16 @@
                 $final_data = json_encode($array_data);  
                 if(file_put_contents('data.json', $final_data))  
                 {  
-                     $message = "<label class='text-success'>File Appended Success fully</p>";  
+                     $message = "<label class='text-success'>Registration Successful</p>";  
                 }  
+                $_SESSION['name'] = $_POST['name'];
+                $_SESSION['uname'] = $_POST['userName'];
+                $_SESSION['pass'] = $_POST['password'];
+                $_SESSION['email'] = $_POST['email'];
+                $_SESSION['gender'] = $_POST['gender'];
+                $_SESSION['dateOfBirth'] = $_POST['dateOfBirth'];
+                header("location:dashboard.php");
+
            }  
            else  
            {  
@@ -110,7 +120,7 @@
   return $data;
 }
  ?>  
- <!DOCTYPE html>  
+<!DOCTYPE html>  
  <html>  
       <head>  
            <title>Append Data to JSON File using PHP</title>  
@@ -119,7 +129,8 @@
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
       </head>  
       <body>  
-           <br />  
+      	<?php include 'header.php';?>
+      	           
            <div class="container" style="width:500px;">  
                 <h3 align="">REGISTRATION</h3><br />                 
                 <form method="post">  
@@ -167,5 +178,7 @@
                 </form>  
            </div>  
            <br />  
+			<?php include 'footer.php';?>
+
       </body>  
  </html>  
