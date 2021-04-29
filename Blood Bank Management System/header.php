@@ -22,11 +22,11 @@
 
     }
     else{
-      echo '<a href="PUBLIC HOME.php">Home</a> |
-      <a href="LOGIN.php">Login</a> |
-      <a href="REGISTRATION.php">Registration</a> |
-      <a href="admin_login.php">Admin Login</a> |
-      <a href="WebHome2.php">Patient Login</a> ';   
+      echo '<a href="LOGIN.php">Login . | .</a>
+      <a href="REGISTRATION.php">Registration . | .</a> 
+      <a href="PUBLIC HOME.php">Home . | .</a>      
+      <a href="admin_login.php">Admin Login . | .</a> 
+      <a href="WebHome2.php">Patient Login . | .</a> ';     
       }
     ?>
   </div>
