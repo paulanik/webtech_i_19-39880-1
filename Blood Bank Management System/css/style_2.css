@@ -1,0 +1,30 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+.topnav {
+  overflow: hidden;
+  background-color: #C23D3D;      /*coloring the navigation border*/
+
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;           /*to make the navigation list white and visible */
+  text-align: center;
+  padding: 14px 16px;       /*to make a space in top and bottom*/
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav a:hover {
+  background-color:#3DC2B9 ;     /*color: grey when we take the cursor in the list in navbar*/
+  color:black;
+}
+.topnav a.active {
+  background-color: #4CAF50;   /*color: green when we take the visit any of the active class in the navbar*/
+  color: white;
+}
