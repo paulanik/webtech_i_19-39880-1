@@ -1,0 +1,3 @@
+<h4>Admin contact</h1>
+<p>Email : admin@gmail.com</p>
+<p>Phone : 01765432345.</p>
